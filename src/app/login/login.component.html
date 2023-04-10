@@ -1,0 +1,78 @@
+<link href= "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<br>
+<br>
+<ng-template appPlaceholder></ng-template>
+<div class="container">
+    <div class="row justify-content-center">
+      <!--<app-alert [message]="error" *ngIf="error" (close)="onHandleError()"></app-alert>-->
+      <div class="col-md-8">
+        <div class="card-group mb-0">
+          <div class="card p-4">
+            <div class="card-body">
+              <h1>Login</h1>
+              <p class="text-muted">Sign In to your account</p>
+              <form  [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+                <div class="input-group mb-3">
+                  <span class="input-group-addon" ><i class="fa fa-user" ></i></span>
+                  <input
+                  type="text"
+                  class="form-control"
+                  name='username'
+                  formControlName="username"
+                  placeholder="Username"
+                  required
+                  >
+                
+                 
+                 <span
+                   *ngIf="!loginForm.get('username')?.valid && loginForm.get('username')?.touched"
+                    >Please enter a valid username
+                 </span>
+
+                </div>
+
+                <div class="input-group mb-4">
+                  <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                  <input
+                  type="password"
+                  class="form-control"
+                  name='password'
+                  formControlName="password"
+                  placeholder="Password">
+                 <span
+                   *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched"
+                    class="help-block">Please enter a password! 
+                  </span>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                     <button
+                     type="submit"
+                     name="button"
+                     [disabled]="!loginForm.valid"
+                     class="btn btn-primary px-4"> Login</button>
+                  </div>
+                  <div *ngIf="showLoading" class="spinner-border" role="status">
+                    <span *ngIf="showLoading" class="sr-only"></span>
+                  </div>
+                  
+                </div>
+                </form>
+            </div>
+          </div>       
+        
+          <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+            <div class="card-body text-center">
+              <div>
+                <h2>Sign up</h2>
+                <p>Get the best food at the right price.</p>
+                <button type="button"
+                (click)="onClickRegister()"
+                class="btn btn-primary active mt-3">Register Now!</button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>  
+</div> 

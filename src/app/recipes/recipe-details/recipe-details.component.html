@@ -1,0 +1,76 @@
+
+<head>
+    <meta charset="utf-8" />
+    <title>Edit Menu</title>
+</head>
+<body>
+<!--<body onload="getSet()">
+    <div class="top-nav">
+		  <h1>TruYum</h1>
+		    <a routerLink=''>Menu</a>
+    </div>-->
+ <br>
+
+<form [formGroup]="menuDetailsForm" (ngsubmit)="onSaveItem(menuDetailsForm.value)"
+(click)="onSaveItem(menuDetailsForm.value)" #recipeDetail>
+    <h1>Edit Menu Item</h1>
+	<table>
+	<tr>
+	  <td>
+	    <label>Name</label><br>
+	    <input
+        type="text"
+        placeholder=""
+        id="itemName"
+        class="form-control"
+        formControlName="itemName"
+        required><br>
+    </td>
+	</tr>
+	<tr>
+	  <td>
+	    <label>Price(Rs.)</label><br>
+	    <input
+        type="number" step="0.01"
+        placeholder=""
+        class="form-conrtol"
+        id="itemPrice"
+        formControlName="itemPrice"
+        >
+	  </td>
+	  <td>
+	    <label>Active</label><br>
+		     <input type="radio" id="ActiveYes" value="Yes" formControlName="isActive"><label>Yes</label>
+		     <input type="radio" id="ActiveNo" value="No" formControlName="isActive"><label>No</label>
+	  </td>
+	  <td>
+	   <label>Date of Launch</label><br>
+	   <input
+       type="text"
+       placeholder=""
+       class="form-control"
+       id="dateOfLaunch"
+       formControlname="dateOfLaunch">
+	  </td>
+	  <td class="form-group">
+	   <label>Category</label><br>
+	   <select formControlName="category" class="form-control">
+	     <option value="Main Course">Main Course</option>
+		   <option value="Starters">Starters</option>
+		   <option value="Dessert">Dessert</option>
+		   <option value="Drinks">Drinks</option>
+	   </select>
+	  </td>
+	 </tr>
+	 <tr>
+		<td>
+		 <input type="checkbox" id="FreeDelivery">
+		 <label>Free Delivery</label>
+		</td>
+	 </tr>
+	 
+	</table>
+	<input type="submit" value="Save">	
+</form>
+</body>
+
